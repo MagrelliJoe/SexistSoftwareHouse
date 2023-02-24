@@ -4,18 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe9abfd9-249c-4337-9247-a8b1872e1b60" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/model/Competence.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/model/Developer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/model/Level.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/model/data/abstraction/developerRepository.java" afterDir="false" />
+    <list default="true" id="fe9abfd9-249c-4337-9247-a8b1872e1b60" name="Changes" comment="Crea package,classi ed interfacce">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/model/Developer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/model/Developer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/model/data/implementation/DeveloperRepositoryInMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/model/data/implementation/DeveloperRepositoryInMemory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +18,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -73,6 +66,18 @@
       <option name="presentableId" value="Default" />
       <updated>1677251434137</updated>
     </task>
+    <task id="LOCAL-00001" summary="Crea package,classi ed interfacce">
+      <created>1677252818113</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1677252818113</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Crea package,classi ed interfacce" />
+    <option name="LAST_COMMIT_MESSAGE" value="Crea package,classi ed interfacce" />
   </component>
 </project>

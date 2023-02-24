@@ -13,7 +13,7 @@ public interface DeveloperRepository {
     void update(Developer dev);
 
     void deleteById(long id);
-    public List<Developer> getActiveDeveloper();
+
 
 }
 
