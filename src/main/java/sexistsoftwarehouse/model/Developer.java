@@ -1,6 +1,7 @@
 package sexistsoftwarehouse.model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 // creare una classe developer, con un id, un nome, un cognome, un sesso, anno di assunzione, uno stipendio,
@@ -9,30 +10,42 @@ public class Developer {
     private long ID;
     private String name;
     private String lastname;
-    private char sex;
+    private String sex;
     private LocalDate assumption;
     private double salary;
     private String grade;
     private List<Competence> competenceList;
 
-    public Developer(long ID,String name,String lastname,char sex,LocalDate assumption,
-                     double salary,String grade,List<Competence> competences) {
-        this.ID = ID;
+    public Developer(String name,String lastname,String sex,LocalDate assumption,
+                     double salary,String grade,Competence competence) {
         this.assumption=assumption;
-        this.competenceList=competences;
+        this.competenceList.add(competence);
         this.grade=grade;
         this.name=name;
         this.lastname=lastname;
         this.sex=sex;
         this.salary=salary;
+
     }
+
+    public List<Level> getCompetenceByLevel() {
+        List<Level> levelList = new ArrayList<>();
+        for (Competence c : competenceList) {
+            levelList.add(c.getLevel());
+        }
+        if (levelList != null) {
+            return levelList;
+        }
+        throw new IllegalArgumentException("Non ho trovato cometenze di questo livello");
+    }
+
 
     public List<Competence> getCompetenceList() {
         return competenceList;
     }
 
-    public void setCompetenceList(List<Competence> competenceList) {
-        this.competenceList = competenceList;
+    public void setCompetenceList(Competence competence) {
+        this.competenceList.add(competence);
     }
 
     public String getGrade() {
@@ -59,11 +72,11 @@ public class Developer {
         this.assumption = assumption;
     }
 
-    public char getSex() {
+    public String getSex() {
         return sex;
     }
 
-    public void setSex(char sex) {
+    public void setSex(String sex) {
         this.sex = sex;
     }
 
@@ -89,5 +102,20 @@ public class Developer {
 
     public void setID(long ID) {
         this.ID = ID;
+    }
+
+
+
+    @Override
+    public String toString() {
+        return
+                "ID=" + ID +
+                ", name='" + name + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", sex=" + sex +
+                ", assumption=" + assumption +
+                ", salary=" + salary +
+                ", grade='" + grade + '\'' +
+                ", competenceList=" + competenceList;
     }
 }

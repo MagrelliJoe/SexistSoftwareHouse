@@ -1,5 +1,7 @@
 package sexistsoftwarehouse.model;
 
 public enum Level {
-    BASE,INTERMEDIATE,ADAVANCED,GURU,DIVIN
+    BASE,INTERMEDIATE,ADVANCE,GURU,DIVINE
 }
+
+

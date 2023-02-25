@@ -4,10 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe9abfd9-249c-4337-9247-a8b1872e1b60" name="Changes" comment="Crea package,classi ed interfacce">
+    <list default="true" id="fe9abfd9-249c-4337-9247-a8b1872e1b60" name="Changes" comment="implementa interfaccia">
+      <change afterPath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/model/service/implementation/ServiceDevSofwareInMemory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/view/UsingConsole.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/model/Competence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/model/Competence.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/model/Developer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/model/Developer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/model/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/model/Level.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/model/data/abstraction/DeveloperRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/model/data/abstraction/DeveloperRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/model/data/implementation/DeveloperRepositoryInMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/model/data/implementation/DeveloperRepositoryInMemory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/model/service/abstraction/ServiceDevSofware.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/model/service/abstraction/ServiceDevSofware.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +52,6 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0"
@@ -73,11 +78,19 @@
       <option name="project" value="LOCAL" />
       <updated>1677252818113</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="implementa interfaccia">
+      <created>1677270820687</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1677270820687</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Crea package,classi ed interfacce" />
-    <option name="LAST_COMMIT_MESSAGE" value="Crea package,classi ed interfacce" />
+    <MESSAGE value="implementa interfaccia" />
+    <option name="LAST_COMMIT_MESSAGE" value="implementa interfaccia" />
   </component>
 </project>

@@ -1,6 +1,8 @@
 package sexistsoftwarehouse.model.data.implementation;
 
+import sexistsoftwarehouse.model.Competence;
 import sexistsoftwarehouse.model.Developer;
+import sexistsoftwarehouse.model.Level;
 import sexistsoftwarehouse.model.data.abstraction.DeveloperRepository;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +11,9 @@ import java.util.stream.Stream;
 
 public class DeveloperRepositoryInMemory implements DeveloperRepository {
     private  List<Developer> developers = new ArrayList<>();
+    private List<Competence> competences = new ArrayList<>();
     private long Id;
+    private long IdCompetence;
 
     @Override
     public Optional<Developer> findById(long id) {
@@ -21,7 +25,7 @@ public class DeveloperRepositoryInMemory implements DeveloperRepository {
     }
 
     @Override
-    public List<Developer> findByComepetence(String nameCompetence) {
+    public List<Developer> findByComepetence(String nameCompetence,Level level) {
        /* List<Developer> findDevelopers= new ArrayList<>();
 
          for(Developer dev : developers){
@@ -32,7 +36,8 @@ public class DeveloperRepositoryInMemory implements DeveloperRepository {
              }
         */
         Stream<Developer> stream = developers.stream();
-        List<Developer> findDevelopers =stream.filter(dev-> dev.getCompetenceList().contains(nameCompetence)).toList();
+        List<Developer> findDevelopers =stream.filter(dev-> dev.getCompetenceList().contains(nameCompetence)
+                && dev.getCompetenceByLevel().contains(level)).toList();
         if(findDevelopers!=null){
             return findDevelopers;
         }else{
@@ -65,7 +70,7 @@ public class DeveloperRepositoryInMemory implements DeveloperRepository {
             developers.remove(d);
             developers.add(dev);
         }else{
-            throw new IllegalArgumentException("Non è presente un dipendente con questo ID")
+            throw new IllegalArgumentException("Non è presente un dipendente con questo ID");
         }
     }
 
@@ -79,5 +84,22 @@ public class DeveloperRepositoryInMemory implements DeveloperRepository {
             throw new IllegalArgumentException("Non è presente un dipendente con questo ID");
         }
     }
+
+    @Override
+    public List<Developer> showDeveloper() {
+        Stream<Developer> stream = developers.stream();
+        List<Developer> list = stream.toList();
+        return list;
+    }
+
+    @Override
+    public Competence createCompetence(Competence competence) {
+        ++IdCompetence;
+        competences.add(competence);
+        competence.setID(Id);
+        IdCompetence++;
+        return competence;
+    }
+
 
 }
