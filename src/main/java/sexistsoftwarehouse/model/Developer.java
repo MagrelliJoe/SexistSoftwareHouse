@@ -15,6 +15,7 @@ public class Developer {
     private double salary;
     private String grade;
     private List<Competence> competenceList;
+    private int numOfCompetence=0;
 
     public Developer(String name,String lastname,String sex,LocalDate assumption,
                      double salary,String grade,Competence competence) {
@@ -25,7 +26,16 @@ public class Developer {
         this.lastname=lastname;
         this.sex=sex;
         this.salary=salary;
+        this.numOfCompetence++;
 
+    }
+
+    public int getNumOfCompetence() {
+        return numOfCompetence;
+    }
+
+    public void setNumOfCompetence(int numOfCompetence) {
+        this.numOfCompetence += numOfCompetence;
     }
 
     public List<Level> getCompetenceByLevel() {
@@ -103,8 +113,6 @@ public class Developer {
     public void setID(long ID) {
         this.ID = ID;
     }
-
-
 
     @Override
     public String toString() {

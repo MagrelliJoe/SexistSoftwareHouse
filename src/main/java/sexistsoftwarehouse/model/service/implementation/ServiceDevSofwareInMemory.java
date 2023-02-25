@@ -22,9 +22,15 @@ public class ServiceDevSofwareInMemory implements ServiceDevSofware {
     }
 
     @Override
-    public List<Developer> findDeveloperbyCompetence(String nameCompetence,Level level) {
-        return repo.findByComepetence(nameCompetence,level);
+    public List<Developer> findDeveloperbyCompetence(String nameCompetence) {
+        return repo.findByComepetence(nameCompetence);
     }
+
+    @Override
+    public List<Developer> findByComepetenceLevel(String nameCompetence, Level level) {
+        return repo.findByComepetenceLevel(nameCompetence,level);
+    }
+
 
     @Override
     public Developer saveDeveloper(Developer developer) {
@@ -51,5 +57,29 @@ public class ServiceDevSofwareInMemory implements ServiceDevSofware {
         return repo.createCompetence(competence);
     }
 
+    @Override
+    public List<Developer> showDeveloperByNumberOfCompetence(int numberCompetence) {
+        return repo.showDeveloperByNumberOfCompetence(numberCompetence);
+    }
+
+    @Override
+    public void addCompetence(Competence competence,Developer developer) {
+        repo.addNewCompetence(competence,developer);
+    }
+
+    @Override
+    public List<Developer> showDevelopersByNumOfCompetenceAndLevels(int numOfCompetence, Level level) {
+        return  repo.showDevelopersByNumOfCompetenceAndLevels(numOfCompetence,level);
+    }
+
+    @Override
+    public List<String> showNameCompetencebyDevelopersDistinct(Level level) {
+       return  repo.showNameCompetencebyDevelopersDistinct(level);
+    }
+
+    @Override
+    public List<Level> getLevelbyCompetence(List<Competence> competenceList) {
+        return repo.getLevelbyCompetence(competenceList);
+    }
 
 }

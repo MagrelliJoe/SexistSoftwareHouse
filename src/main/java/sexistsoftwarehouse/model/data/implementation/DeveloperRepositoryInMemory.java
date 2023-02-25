@@ -25,7 +25,7 @@ public class DeveloperRepositoryInMemory implements DeveloperRepository {
     }
 
     @Override
-    public List<Developer> findByComepetence(String nameCompetence,Level level) {
+    public List<Developer> findByComepetenceLevel(String nameCompetence,Level level) {
        /* List<Developer> findDevelopers= new ArrayList<>();
 
          for(Developer dev : developers){
@@ -44,6 +44,18 @@ public class DeveloperRepositoryInMemory implements DeveloperRepository {
             throw  new IllegalArgumentException("Non ho trovato nessun dipendente con queste competenze");
         }
          }
+
+    @Override
+    public List<Developer> findByComepetence(String nameCompetence) {
+        Stream<Developer> stream = developers.stream();
+        List<Developer> findDevelopers =stream.filter(dev-> dev.getCompetenceList().contains(nameCompetence)).toList();
+        if(findDevelopers!=null){
+            return findDevelopers;
+        }else{
+            throw  new IllegalArgumentException("Non ho trovato nessun dipendente con queste competenze");
+        }
+    }
+
     @Override
     public Developer create(Developer dev) {
         ++Id;
@@ -101,5 +113,53 @@ public class DeveloperRepositoryInMemory implements DeveloperRepository {
         return competence;
     }
 
+    @Override
+    public List<Developer> showDeveloperByNumberOfCompetence(int numberCompetence) {
+        Stream <Developer> stream = developers.stream();
+        try {
+            List<Developer> developerList = stream.filter(dev -> dev.getNumOfCompetence() == numberCompetence).toList();
+            return developerList;
+        }catch(Exception e){
+            throw new IllegalArgumentException("Nessun developer ha questo numero di competenze");
+        }
+    }
+
+    @Override
+    public Developer addNewCompetence(Competence competence,Developer developer) {
+        developer.setNumOfCompetence(1);
+        developer.setCompetenceList(competence);
+        return developer;
+    }
+
+    @Override
+    public List<Developer> showDevelopersByNumOfCompetenceAndLevels(int numOfCompetence,Level level) {
+        Stream <Developer> stream = developers.stream();
+        List<Developer> developerList = stream.filter(d-> d.getNumOfCompetence()== numOfCompetence && d.getCompetenceList().contains(level)).toList();
+        if(developerList != null){
+            return  developerList;
+        }else{
+            throw new IllegalArgumentException("Nessun dipendente ha questo numero di competenze e/o questo livello");
+        }
+    }
+
+    public List<String> showNameCompetencebyDevelopersDistinct(Level level){
+        Stream <Developer> stream = developers.stream();
+        List<String> developersbyLevelCompetenceDistinct = new ArrayList<>();
+        var developerList = stream.filter(d-> d.getCompetenceList().contains(level)).toList();
+        Stream<Developer> developerStream = developerList.stream();
+        var stringList = developerStream.map(d-> d.getCompetenceList().get(0).getName()).toList();
+        if(stringList != null){
+            return stringList;
+        }else{
+            throw new IllegalArgumentException("Non ho trovato nulla");
+        }
+    }
+
+    @Override
+    public List<Level> getLevelbyCompetence(List<Competence> competenceList) {
+        Stream <Competence> competenceStream = competenceList.stream();
+        List<Level> levelList = competenceStream.map(d-> d.getLevel()).toList();
+        return  levelList;
+    }
 
 }

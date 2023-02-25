@@ -9,7 +9,9 @@ import java.util.Optional;
 public interface DeveloperRepository {
     Optional<Developer> findById(long id);
 
-    List<Developer> findByComepetence(String nameCompetence,Level level);
+    List<Developer> findByComepetenceLevel(String nameCompetence,Level level);
+
+    List<Developer> findByComepetence(String nameCompetence);
 
     Developer create(Developer dev);
 
@@ -18,6 +20,16 @@ public interface DeveloperRepository {
     void deleteById(long id);
     List<Developer> showDeveloper();
     Competence createCompetence(Competence competence);
+
+    List<Developer> showDeveloperByNumberOfCompetence(int numberCompetence);
+
+    Developer addNewCompetence(Competence competence,Developer developer);
+
+    List<Developer> showDevelopersByNumOfCompetenceAndLevels(int numOfCompetence,Level level);
+
+    List<String> showNameCompetencebyDevelopersDistinct(Level level);
+
+    List<Level> getLevelbyCompetence(List<Competence> competenceList);
 
 }
 
