@@ -82,4 +82,19 @@ public class ServiceDevSofwareInMemory implements ServiceDevSofware {
         return repo.getLevelbyCompetence(competenceList);
     }
 
+    @Override
+    public double showAverageSalary() {
+        return repo.showAverageSalary();
+    }
+
+    @Override
+    public Optional<Developer> showHighestSalary() {
+        return repo.showHighestSalary();
+    }
+
+    @Override
+    public boolean isSexistOrNot() {
+        return repo.isSexistOrNot();
+    }
+
 }

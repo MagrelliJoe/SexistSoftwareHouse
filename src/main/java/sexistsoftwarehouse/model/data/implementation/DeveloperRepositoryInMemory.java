@@ -7,6 +7,7 @@ import sexistsoftwarehouse.model.data.abstraction.DeveloperRepository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Scanner;
 import java.util.stream.Stream;
 
 public class DeveloperRepositoryInMemory implements DeveloperRepository {
@@ -144,7 +145,6 @@ public class DeveloperRepositoryInMemory implements DeveloperRepository {
 
     public List<String> showNameCompetencebyDevelopersDistinct(Level level){
         Stream <Developer> stream = developers.stream();
-        List<String> developersbyLevelCompetenceDistinct = new ArrayList<>();
         var developerList = stream.filter(d-> d.getCompetenceList().contains(level)).toList();
         Stream<Developer> developerStream = developerList.stream();
         var stringList = developerStream.map(d-> d.getCompetenceList().get(0).getName()).toList();
@@ -161,5 +161,34 @@ public class DeveloperRepositoryInMemory implements DeveloperRepository {
         List<Level> levelList = competenceStream.map(d-> d.getLevel()).toList();
         return  levelList;
     }
+
+    @Override
+    public double showAverageSalary() {
+        Stream <Developer> developerStream = developers.stream();
+        var sum = developerStream.mapToDouble(d-> d.getSalary()).sum();
+        return sum /= developers.size();
+    }
+
+    @Override
+    public Optional<Developer> showHighestSalary() {
+        Stream <Developer> developerStream = developers.stream();
+        Optional highestSalary = developerStream.max((d1,d2)-> (int)(d1.getSalary() - d2.getSalary()));
+        return highestSalary;
+    }
+
+    @Override
+    public boolean isSexistOrNot() {
+        Stream <Developer> developerStream = developers.stream();
+        List<Developer> manDeveloper = developerStream.filter(d-> d.getSex().equalsIgnoreCase("M")).toList();
+        if(manDeveloper.size() > (developers.size()-manDeveloper.size())){
+            System.out.println("La tua azienda è assolutamente sessista!");
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+
+
 
 }

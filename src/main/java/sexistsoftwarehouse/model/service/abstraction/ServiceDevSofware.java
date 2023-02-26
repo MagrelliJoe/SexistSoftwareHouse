@@ -26,6 +26,11 @@ public interface ServiceDevSofware {
     List<Developer> showDevelopersByNumOfCompetenceAndLevels(int numOfCompetence,Level level);
 
     List<String> showNameCompetencebyDevelopersDistinct(Level level);
-    public List<Level> getLevelbyCompetence(List<Competence> competenceList);
+    List<Level> getLevelbyCompetence(List<Competence> competenceList);
+
+    double showAverageSalary();
+    Optional<Developer> showHighestSalary();
+
+    boolean isSexistOrNot();
 
 }

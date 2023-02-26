@@ -31,5 +31,12 @@ public interface DeveloperRepository {
 
     List<Level> getLevelbyCompetence(List<Competence> competenceList);
 
+    double showAverageSalary();
+
+    Optional<Developer> showHighestSalary();
+
+    boolean isSexistOrNot();
+
+
 }
 

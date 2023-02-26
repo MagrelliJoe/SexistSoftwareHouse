@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Scanner;
 import java.util.stream.Stream;
 
@@ -25,9 +26,12 @@ public class UsingConsole {
         pln("Premi r -> Aggiungi un nuovo Developer");
         pln("Premi i -> Cerca un Developer per competenza e livello");
         pln("Premi c -> Cerca un Developer per numero di competenze");
+        pln("Premi a -> Cerca un Developer per numero di competenze e livello");
+        pln("Premi o -> Visualizza le competenze dei developers distinti");
         pln("Premi u -> Cerca una competenza per sapere se i tuoi Developer la conoscono");
         pln("Premi j -> Visualizza il costo medio dei salari dei tuoi Developers");
         pln("Premi k -> Visualizza valore massimo del salario dei tuoi Developers");
+        pln("Premi b -> Verifica che la tua azienda sia sessista");
         pln("Premi q -> Esci");
     }
     public void showSecondMenu(){
@@ -123,6 +127,8 @@ public class UsingConsole {
                Competence competenceOther = setCompetence("Inserisci una competenza");
                service.addCompetence(competenceOther,dev);
                return dev;
+           }else{
+               return dev;
            }
        }while(true);
 
@@ -143,7 +149,7 @@ public class UsingConsole {
         }
 
     }
-    public List<Developer> showDeveloperbyCompetenceandLevels(String s){
+    public List<Developer> getDeveloperbyCompetenceandLevels(String s){
         String nameCompetence = getLine(s);
         Level level = setLevelCompetence();
         List<Developer> developers = service.findByComepetenceLevel(nameCompetence,level);
@@ -153,7 +159,7 @@ public class UsingConsole {
         throw new IllegalArgumentException("Non ho trovato developers con queste competenze e livello");
     }
 
-    public List<Developer> showDeveloperbyCompetence(String s){
+    public List<Developer> getDeveloperbyCompetence(String s){
         String nameCompetence = getLine(s);
         List<Developer> developers = service.findDeveloperbyCompetence(nameCompetence);
         if(developers != null) {
@@ -161,7 +167,7 @@ public class UsingConsole {
         }
         throw new IllegalArgumentException("Non ho trovato developers con questa competenza");
     }
-     public List<Developer> showDeveloperByNumOfCompetence(String s){
+     public List<Developer> getDeveloperByNumOfCompetence(String s){
         int numberRequisite = getInt(s);
         List<Developer> developers = service.showDeveloperByNumberOfCompetence(numberRequisite);
          if(developers != null) {
@@ -170,18 +176,18 @@ public class UsingConsole {
          throw new IllegalArgumentException("Non ho trovato developers con questo numero di competenze");
      }
 
-     public List<Developer> showDevelopersByNumOfCompetenceAndLevels(String s){
+     public List<Developer> getDevelopersByNumOfCompetenceAndLevels(String s){
         int numberRequisite = getInt(s);
         Level levelRequisite = setLevelCompetence();
         return  service.showDevelopersByNumOfCompetenceAndLevels(numberRequisite,levelRequisite);
      }
 
-     public List<String> showNameCompetencebyLevelDistincs(){
+     public List<String> getNameCompetencebyLevelDistincs(){
         Level levelRequiest = setLevelCompetence();
         return  service.showNameCompetencebyDevelopersDistinct(levelRequiest);
      }
 
-     public List<Level> levelOfCompetenceRequiest(String s){
+     public List<Level> getlevelOfCompetenceRequiest(String s){
         String string = getLine(s);
         List<Developer> developerList = service.findDeveloperbyCompetence(string);
         if(developerList != null){
@@ -195,4 +201,45 @@ public class UsingConsole {
         }
         throw new IllegalArgumentException("Errore nel trovare i livelli di competenze");
      }
+
+    public double getAverageSalary(String s){
+        pln(s);
+        return service.showAverageSalary();
+    }
+
+    public Optional<Developer> getshowHightestSalaty(String s){
+        pln(s);
+        return service.showHighestSalary();
+    }
+
+    public List<Developer> setsexistCompany(List<Developer> developers) {
+        boolean b = service.isSexistOrNot();
+        if (b == false) {
+            System.out.println("La tua azienda  non è sessista!Apporterò delle modifiche in merito!");
+            System.out.println("Premi S se vuoi consentire le mie modifiche!");
+            Scanner scanner = new Scanner("System.in");
+            String ans = scanner.nextLine();
+            if (ans.equalsIgnoreCase("S")) {
+                Stream<Developer> stream = developers.stream();
+                List<Developer> developersMale = stream.filter(d -> d.getSex().equalsIgnoreCase("M")).toList();
+                int numOfDevelopersMale = developersMale.size();
+                for (Developer d : developers) {
+                    while (developersMale.size() < developers.size() - developersMale.size()) {
+                        if (d.getSex().equalsIgnoreCase("F")) {
+                            developers.remove(d);
+                        }
+                    }
+                }
+                System.out.println("La tua azienda ora è assolutamente sessista!");
+                return developers;
+            }else{
+                System.out.println("La tua azienda non è assolutamente sessista per tua scelta!");
+            }
+
+        }
+            return developers;
+    }
+
+
+
 }
