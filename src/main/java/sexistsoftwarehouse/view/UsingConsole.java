@@ -34,10 +34,6 @@ public class UsingConsole {
         pln("Premi b -> Verifica che la tua azienda sia sessista");
         pln("Premi q -> Esci");
     }
-    public void showSecondMenu(){
-        pln("Premi c->Aggiungi nuove competenze");
-        pln("Premi c->Inserisci il numero di competenze");
-    }
     private void pln(String s){
         System.out.println(s);
     }
