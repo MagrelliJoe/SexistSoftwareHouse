@@ -6,11 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fe9abfd9-249c-4337-9247-a8b1872e1b60" name="Changes" comment="implementa metodi della classe UserConsole">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/model/data/abstraction/DeveloperRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/model/data/abstraction/DeveloperRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/model/data/implementation/DeveloperRepositoryInMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/model/data/implementation/DeveloperRepositoryInMemory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/model/service/abstraction/ServiceDevSofware.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/model/service/abstraction/ServiceDevSofware.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/model/service/implementation/ServiceDevSofwareInMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/model/service/implementation/ServiceDevSofwareInMemory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/view/UsingConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/view/UsingConsole.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +99,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677431732548</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="implementa metodi della classe UserConsole">
+      <created>1677453975917</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1677453975917</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

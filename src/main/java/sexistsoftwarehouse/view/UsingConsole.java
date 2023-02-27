@@ -222,7 +222,6 @@ public class UsingConsole {
             if (ans.equalsIgnoreCase("S")) {
                 Stream<Developer> stream = developers.stream();
                 List<Developer> developersMale = stream.filter(d -> d.getSex().equalsIgnoreCase("M")).toList();
-                int numOfDevelopersMale = developersMale.size();
                 for (Developer d : developers) {
                     while (developersMale.size() < developers.size() - developersMale.size()) {
                         if (d.getSex().equalsIgnoreCase("F")) {
