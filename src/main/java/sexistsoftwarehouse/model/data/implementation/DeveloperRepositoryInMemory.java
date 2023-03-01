@@ -7,7 +7,7 @@ import sexistsoftwarehouse.model.data.abstraction.DeveloperRepository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.Scanner;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class DeveloperRepositoryInMemory implements DeveloperRepository {
@@ -26,40 +26,20 @@ public class DeveloperRepositoryInMemory implements DeveloperRepository {
     }
 
     @Override
-    public List<Developer> findByComepetenceLevel(String nameCompetence,Level level) {
-       /* List<Developer> findDevelopers= new ArrayList<>();
-
-         for(Developer dev : developers){
-             if(dev.getCompetenceList().contains(nameCompetence)){
-                 findDevelopers.add(dev);
-             }else{
-                 throw new IllegalArgumentException("Nessun dipendente ha queste competenze");
-             }
-        */
+    public List<Developer> getDevelopersByCompetenceAndLevel(String nameCompetence,Level level) {
         Stream<Developer> stream = developers.stream();
-        List<Developer> findDevelopers =stream.filter(dev-> dev.getCompetenceList().contains(nameCompetence)
-                && dev.getCompetenceByLevel().contains(level)).toList();
-        if(findDevelopers!=null){
+        var findDevelopers = stream.filter(d-> d.getCompetenceList().listIterator().next().getName().equalsIgnoreCase(nameCompetence) && d.getCompetenceList().listIterator().next().getLevel().toString().equalsIgnoreCase(level.toString())) .toList();
             return findDevelopers;
-        }else{
-            throw  new IllegalArgumentException("Non ho trovato nessun dipendente con queste competenze");
-        }
          }
 
-    @Override
-    public List<Developer> findByComepetence(String nameCompetence) {
-        Stream<Developer> stream = developers.stream();
-        List<Developer> findDevelopers =stream.filter(dev-> dev.getCompetenceList().contains(nameCompetence)).toList();
-        if(findDevelopers!=null){
-            return findDevelopers;
-        }else{
-            throw  new IllegalArgumentException("Non ho trovato nessun dipendente con queste competenze");
-        }
+    @Override // DA SISTEMARE
+    public List<Developer> getDevelopersByComepetence(String nameCompetence) {
+       return developers.stream().filter(dev -> dev.getCompetenceList().stream()
+                .anyMatch(c -> c.getName().contains(nameCompetence))).toList();
     }
 
     @Override
     public Developer create(Developer dev) {
-        ++Id;
         developers.add(dev);
         dev.setID(Id);
         Id++;
@@ -67,35 +47,10 @@ public class DeveloperRepositoryInMemory implements DeveloperRepository {
     }
 
     @Override
-    public void update(Developer d) {
-       /* for (Developer dev: developers) {
-            if (d.getID()== dev.getID()) {
-                developers.remove(d);
-                developers.add(dev);
-            }else{
-                throw new IllegalArgumentException("Non è presente un dipendente con questo ID");
-            }
-        }
-        */
-        Stream<Developer> stream = developers.stream();
-        Developer dev = (Developer)stream.filter(dev1 -> dev1.getID()==d.getID());
-        if(dev != null) {
-            developers.remove(d);
-            developers.add(dev);
-        }else{
-            throw new IllegalArgumentException("Non è presente un dipendente con questo ID");
-        }
-    }
-
-    @Override
     public void deleteById(long id) {
         Stream<Developer> stream= developers.stream();
-        Developer d_remove = (Developer)stream.filter(d -> d.getID()==id);
-        if(d_remove != null) {
-            developers.remove(d_remove);
-        }else{
-            throw new IllegalArgumentException("Non è presente un dipendente con questo ID");
-        }
+        Developer dev_remove = stream.filter(e -> e.getID() == id).findAny().get();
+        developers.remove(dev_remove);
     }
 
     @Override
@@ -107,7 +62,6 @@ public class DeveloperRepositoryInMemory implements DeveloperRepository {
 
     @Override
     public Competence createCompetence(Competence competence) {
-        ++IdCompetence;
         competences.add(competence);
         competence.setID(Id);
         IdCompetence++;
@@ -117,14 +71,9 @@ public class DeveloperRepositoryInMemory implements DeveloperRepository {
     @Override
     public List<Developer> showDeveloperByNumberOfCompetence(int numberCompetence) {
         Stream <Developer> stream = developers.stream();
-        try {
-            List<Developer> developerList = stream.filter(dev -> dev.getNumOfCompetence() == numberCompetence).toList();
-            return developerList;
-        }catch(Exception e){
-            throw new IllegalArgumentException("Nessun developer ha questo numero di competenze");
-        }
+        List<Developer> developerList = stream.filter(dev -> dev.getNumOfCompetence() == numberCompetence).toList();
+        return  developerList;
     }
-
     @Override
     public Developer addNewCompetence(Competence competence,Developer developer) {
         developer.setNumOfCompetence(1);
@@ -133,26 +82,17 @@ public class DeveloperRepositoryInMemory implements DeveloperRepository {
     }
 
     @Override
-    public List<Developer> showDevelopersByNumOfCompetenceAndLevels(int numOfCompetence,Level level) {
+    public List<Developer> getDevelopersByNumOfCompetenceAndLevels(int numOfCompetence,Level level) {
         Stream <Developer> stream = developers.stream();
-        List<Developer> developerList = stream.filter(d-> d.getNumOfCompetence()== numOfCompetence && d.getCompetenceList().contains(level)).toList();
-        if(developerList != null){
-            return  developerList;
-        }else{
-            throw new IllegalArgumentException("Nessun dipendente ha questo numero di competenze e/o questo livello");
-        }
+        List<Developer> developerList = stream.filter(d-> d.getNumOfCompetence() == numOfCompetence &&
+                d.getCompetenceList().stream().anyMatch(c-> c.getLevel().equals(level))).toList();
+        return developerList;
     }
 
-    public List<String> showNameCompetencebyDevelopersDistinct(Level level){
+    public List<Competence> getCompetencebyLevel(Level level){
         Stream <Developer> stream = developers.stream();
-        var developerList = stream.filter(d-> d.getCompetenceList().contains(level)).toList();
-        Stream<Developer> developerStream = developerList.stream();
-        var stringList = developerStream.map(d-> d.getCompetenceList().get(0).getName()).toList();
-        if(stringList != null){
-            return stringList;
-        }else{
-            throw new IllegalArgumentException("Non ho trovato nulla");
-        }
+        List<Competence> list = stream.flatMap(d->d.getCompetenceList().stream().filter(c-> c.getLevel().toString().equalsIgnoreCase(level.toString()))).toList();
+        return list;
     }
 
     @Override
@@ -163,17 +103,17 @@ public class DeveloperRepositoryInMemory implements DeveloperRepository {
     }
 
     @Override
-    public double showAverageSalary() {
+    public double getAverageSalary() {
         Stream <Developer> developerStream = developers.stream();
         var sum = developerStream.mapToDouble(d-> d.getSalary()).sum();
         return sum /= developers.size();
     }
 
     @Override
-    public Optional<Developer> showHighestSalary() {
+    public double getHighestSalary() {
         Stream <Developer> developerStream = developers.stream();
-        Optional highestSalary = developerStream.max((d1,d2)-> (int)(d1.getSalary() - d2.getSalary()));
-        return highestSalary;
+        double hight = developerStream.mapToDouble(d-> d.getSalary()).max().getAsDouble();
+        return hight;
     }
 
     @Override

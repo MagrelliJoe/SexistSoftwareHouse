@@ -7,35 +7,21 @@ import java.util.List;
 import java.util.Optional;
 
 public interface DeveloperRepository {
-    Optional<Developer> findById(long id);
-
-    List<Developer> findByComepetenceLevel(String nameCompetence,Level level);
-
-    List<Developer> findByComepetence(String nameCompetence);
-
-    Developer create(Developer dev);
-
-    void update(Developer dev);
-
-    void deleteById(long id);
-    List<Developer> showDeveloper();
-    Competence createCompetence(Competence competence);
-
-    List<Developer> showDeveloperByNumberOfCompetence(int numberCompetence);
-
-    Developer addNewCompetence(Competence competence,Developer developer);
-
-    List<Developer> showDevelopersByNumOfCompetenceAndLevels(int numOfCompetence,Level level);
-
-    List<String> showNameCompetencebyDevelopersDistinct(Level level);
-
+    Optional<Developer> findById(long id); //ok
+    List<Developer> getDevelopersByCompetenceAndLevel(String nameCompetence,Level level); //ok
+    List<Developer> getDevelopersByComepetence(String nameCompetence); //ok
+    Developer create(Developer dev); //ok
+    void deleteById(long id);//ok
+    List<Developer> showDeveloper();//ok
+    Competence createCompetence(Competence competence);//ok
+    List<Developer> showDeveloperByNumberOfCompetence(int numberCompetence);//ok
+    Developer addNewCompetence(Competence competence,Developer developer);//ok
+    List<Developer> getDevelopersByNumOfCompetenceAndLevels(int numOfCompetence,Level level);//ok
+    List<Competence> getCompetencebyLevel(Level level);//ok
     List<Level> getLevelbyCompetence(List<Competence> competenceList);
-
-    double showAverageSalary();
-
-    Optional<Developer> showHighestSalary();
-
-    boolean isSexistOrNot();
+    double getAverageSalary();//ok
+    double getHighestSalary();//ok
+    boolean isSexistOrNot();//ok
 
 
 }

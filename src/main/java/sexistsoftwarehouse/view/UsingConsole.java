@@ -4,10 +4,8 @@ import sexistsoftwarehouse.model.Competence;
 import sexistsoftwarehouse.model.Developer;
 import sexistsoftwarehouse.model.Level;
 import sexistsoftwarehouse.model.service.abstraction.ServiceDevSofware;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
@@ -33,6 +31,13 @@ public class UsingConsole {
         pln("Premi k -> Visualizza valore massimo del salario dei tuoi Developers");
         pln("Premi b -> Verifica che la tua azienda sia sessista");
         pln("Premi q -> Esci");
+    }
+
+    public void start(){
+        showMainMenu();
+        scanner = new Scanner("System.in");
+        String answer = scanner.nextLine();
+
     }
     private void pln(String s){
         System.out.println(s);
@@ -104,7 +109,7 @@ public class UsingConsole {
     }
 
     public List<Developer> showAllDevelopers() {
-        List<Developer> devList = service.showDeveloper().stream().toList();
+        List<Developer> devList = service.showAllDevelopers().stream().toList();
         return devList;
     }
 
@@ -121,7 +126,7 @@ public class UsingConsole {
            String question = getLine("Vuoi inserire altre competenze? S/N");
            if (question.equalsIgnoreCase("s")) {
                Competence competenceOther = setCompetence("Inserisci una competenza");
-               service.addCompetence(competenceOther,dev);
+               service.addCompetenceToDeveloper(competenceOther,dev);
                return dev;
            }else{
                return dev;
@@ -148,7 +153,7 @@ public class UsingConsole {
     public List<Developer> getDeveloperbyCompetenceandLevels(String s){
         String nameCompetence = getLine(s);
         Level level = setLevelCompetence();
-        List<Developer> developers = service.findByComepetenceLevel(nameCompetence,level);
+        List<Developer> developers = service.showDevelopersByCompetenceAndLevel(nameCompetence,level);
         if(developers != null) {
             return developers;
         }
@@ -157,7 +162,7 @@ public class UsingConsole {
 
     public List<Developer> getDeveloperbyCompetence(String s){
         String nameCompetence = getLine(s);
-        List<Developer> developers = service.findDeveloperbyCompetence(nameCompetence);
+        List<Developer> developers = service.showDeveloperbyCompetence(nameCompetence);
         if(developers != null) {
             return developers;
         }
@@ -178,19 +183,19 @@ public class UsingConsole {
         return  service.showDevelopersByNumOfCompetenceAndLevels(numberRequisite,levelRequisite);
      }
 
-     public List<String> getNameCompetencebyLevelDistincs(){
+     public List<Competence> getNameCompetencebyLevelDistincs(){
         Level levelRequiest = setLevelCompetence();
-        return  service.showNameCompetencebyDevelopersDistinct(levelRequiest);
+        return  service.showCompetenceByLevel(levelRequiest);
      }
 
      public List<Level> getlevelOfCompetenceRequiest(String s){
         String string = getLine(s);
-        List<Developer> developerList = service.findDeveloperbyCompetence(string);
+        List<Developer> developerList = service.showDeveloperbyCompetence(string);
         if(developerList != null){
             pln("Tra i tuoi develpers ci sono conoscenze per la competenza richiesta");
 
            for(Developer d : developerList){
-              return service.getLevelbyCompetence(d.getCompetenceList());
+              return service.showLevelbyCompetence(d.getCompetenceList());
            }
         }else{
             pln("Competenza sconosciuta tra i tuoi Developers");
@@ -203,7 +208,7 @@ public class UsingConsole {
         return service.showAverageSalary();
     }
 
-    public Optional<Developer> getshowHightestSalaty(String s){
+    public double getshowHightestSalaty(String s){
         pln(s);
         return service.showHighestSalary();
     }
@@ -234,7 +239,6 @@ public class UsingConsole {
         }
             return developers;
     }
-
 
 
 }

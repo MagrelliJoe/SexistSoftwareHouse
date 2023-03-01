@@ -46,4 +46,13 @@ public class Competence {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "Competence{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", level=" + level +
+                '}';
+    }
 }

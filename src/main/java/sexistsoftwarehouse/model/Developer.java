@@ -14,7 +14,7 @@ public class Developer {
     private LocalDate assumption;
     private double salary;
     private String grade;
-    private List<Competence> competenceList;
+    private List<Competence> competenceList = new ArrayList<>();
     private int numOfCompetence=0;
 
     public Developer(String name,String lastname,String sex,LocalDate assumption,
@@ -124,6 +124,6 @@ public class Developer {
                 ", assumption=" + assumption +
                 ", salary=" + salary +
                 ", grade='" + grade + '\'' +
-                ", competenceList=" + competenceList;
+                ", competenceList=" + competenceList.toString();
     }
 }

@@ -1,11 +1,9 @@
 package sexistsoftwarehouse.model.service.implementation;
-
 import sexistsoftwarehouse.model.Competence;
 import sexistsoftwarehouse.model.Developer;
 import sexistsoftwarehouse.model.Level;
 import sexistsoftwarehouse.model.data.abstraction.DeveloperRepository;
 import sexistsoftwarehouse.model.service.abstraction.ServiceDevSofware;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -18,29 +16,23 @@ public class ServiceDevSofwareInMemory implements ServiceDevSofware {
     @Override
     public Optional<Developer> findDeveloperById(long id) {
       return repo.findById(id);
-
     }
 
     @Override
-    public List<Developer> findDeveloperbyCompetence(String nameCompetence) {
-        return repo.findByComepetence(nameCompetence);
+    public List<Developer> showDeveloperbyCompetence(String nameCompetence) {
+        return repo.getDevelopersByComepetence(nameCompetence);
     }
 
     @Override
-    public List<Developer> findByComepetenceLevel(String nameCompetence, Level level) {
-        return repo.findByComepetenceLevel(nameCompetence,level);
+    public List<Developer> showDevelopersByCompetenceAndLevel(String nameCompetence, Level level) {
+        return repo.getDevelopersByCompetenceAndLevel(nameCompetence,level);
     }
-
 
     @Override
     public Developer saveDeveloper(Developer developer) {
         return repo.create(developer);
     }
 
-    @Override
-    public void updateDeveloper(Developer developer) {
-        repo.update(developer);
-    }
 
     @Override
     public void deleteDeveloperById(long id) {
@@ -48,7 +40,7 @@ public class ServiceDevSofwareInMemory implements ServiceDevSofware {
     }
 
     @Override
-    public List<Developer> showDeveloper() {
+    public List<Developer> showAllDevelopers() {
         return repo.showDeveloper();
     }
 
@@ -63,33 +55,33 @@ public class ServiceDevSofwareInMemory implements ServiceDevSofware {
     }
 
     @Override
-    public void addCompetence(Competence competence,Developer developer) {
+    public void addCompetenceToDeveloper(Competence competence,Developer developer) {
         repo.addNewCompetence(competence,developer);
     }
 
     @Override
     public List<Developer> showDevelopersByNumOfCompetenceAndLevels(int numOfCompetence, Level level) {
-        return  repo.showDevelopersByNumOfCompetenceAndLevels(numOfCompetence,level);
+        return  repo.getDevelopersByNumOfCompetenceAndLevels(numOfCompetence,level);
     }
 
     @Override
-    public List<String> showNameCompetencebyDevelopersDistinct(Level level) {
-       return  repo.showNameCompetencebyDevelopersDistinct(level);
+    public List<Competence> showCompetenceByLevel(Level level) {
+       return  repo.getCompetencebyLevel(level);
     }
 
     @Override
-    public List<Level> getLevelbyCompetence(List<Competence> competenceList) {
+    public List<Level> showLevelbyCompetence(List<Competence> competenceList) {
         return repo.getLevelbyCompetence(competenceList);
     }
 
     @Override
     public double showAverageSalary() {
-        return repo.showAverageSalary();
+        return repo.getAverageSalary();
     }
 
     @Override
-    public Optional<Developer> showHighestSalary() {
-        return repo.showHighestSalary();
+    public double showHighestSalary() {
+        return repo.getHighestSalary();
     }
 
     @Override
