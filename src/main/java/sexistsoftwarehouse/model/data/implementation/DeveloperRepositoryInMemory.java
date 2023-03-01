@@ -54,7 +54,7 @@ public class DeveloperRepositoryInMemory implements DeveloperRepository {
     }
 
     @Override
-    public List<Developer> showDeveloper() {
+    public List<Developer> getAllDeveloper() {
         Stream<Developer> stream = developers.stream();
         List<Developer> list = stream.toList();
         return list;

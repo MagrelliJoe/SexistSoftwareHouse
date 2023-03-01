@@ -41,7 +41,7 @@ public class ServiceDevSofwareInMemory implements ServiceDevSofware {
 
     @Override
     public List<Developer> showAllDevelopers() {
-        return repo.showDeveloper();
+        return repo.getAllDeveloper();
     }
 
     @Override

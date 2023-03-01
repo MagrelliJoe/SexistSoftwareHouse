@@ -12,7 +12,7 @@ public interface DeveloperRepository {
     List<Developer> getDevelopersByComepetence(String nameCompetence); //ok
     Developer create(Developer dev); //ok
     void deleteById(long id);//ok
-    List<Developer> showDeveloper();//ok
+    List<Developer> getAllDeveloper();//ok
     Competence createCompetence(Competence competence);//ok
     List<Developer> showDeveloperByNumberOfCompetence(int numberCompetence);//ok
     Developer addNewCompetence(Competence competence,Developer developer);//ok

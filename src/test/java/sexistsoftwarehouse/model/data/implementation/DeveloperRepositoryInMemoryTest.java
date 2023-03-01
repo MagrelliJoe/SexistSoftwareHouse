@@ -31,20 +31,20 @@ class DeveloperRepositoryInMemoryTest {
         service.saveDeveloper(dev2);
         service.saveDeveloper(dev3);
         service.saveDeveloper(dev4);
-        service.addCompetence(new Competence("html","html script",Level.ADVANCE),dev);
-        service.addCompetence(new Competence("javascript","script",Level.ADVANCE),dev1);
+        service.addCompetenceToDeveloper(new Competence("html","html script",Level.ADVANCE),dev);
+        service.addCompetenceToDeveloper(new Competence("javascript","script",Level.ADVANCE),dev1);
         System.out.println(service.findDeveloperById(1));
         System.out.println(service.showDevelopersByCompetenceAndLevel("java",Level.BASE));
         System.out.println(service.showDeveloperbyCompetence("html"));
-        System.out.println(service.showDeveloper().size());
+        System.out.println(service.showAllDevelopers().size());
         service.deleteDeveloperById(3);
-        System.out.println(service.showDeveloper().size());
-        System.out.println(service.showDeveloper());
+        System.out.println(service.showAllDevelopers().size());
+        System.out.println(service.showAllDevelopers());
         System.out.println(service.showDeveloperByNumberOfCompetence(2));
         System.out.println(service.showDevelopersByNumOfCompetenceAndLevels(2,Level.DIVINE));
         System.out.println(service.showCompetenceByLevel(Level.DIVINE));
         System.out.println(service.showHighestSalary());
-        //System.out.println(service.showAverageSalary());
+        System.out.println(service.showAverageSalary());
 
 
     }
