@@ -17,7 +17,7 @@ public interface ServiceDevSofware {
     void addCompetenceToDeveloper(Competence competence,Developer developer);
     List<Developer> showDevelopersByNumOfCompetenceAndLevels(int numOfCompetence,Level level);
     List<Competence> showCompetenceByLevel(Level level);
-    List<Level> showLevelbyCompetence(List<Competence> competenceList);
+    List<Level> showLevelbyCompetence();
     double showAverageSalary();
     double showHighestSalary();
     boolean isSexistOrNot();

@@ -8,12 +8,7 @@ import sexistsoftwarehouse.model.Developer;
 import sexistsoftwarehouse.model.Level;
 import sexistsoftwarehouse.model.service.abstraction.ServiceDevSofware;
 import sexistsoftwarehouse.model.service.implementation.ServiceDevSofwareInMemory;
-
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class DeveloperRepositoryInMemoryTest {
 
@@ -45,6 +40,7 @@ class DeveloperRepositoryInMemoryTest {
         System.out.println(service.showCompetenceByLevel(Level.DIVINE));
         System.out.println(service.showHighestSalary());
         System.out.println(service.showAverageSalary());
+        System.out.println(service.showLevelbyCompetence());
 
 
     }

@@ -195,7 +195,7 @@ public class UsingConsole {
             pln("Tra i tuoi develpers ci sono conoscenze per la competenza richiesta");
 
            for(Developer d : developerList){
-              return service.showLevelbyCompetence(d.getCompetenceList());
+              return service.showLevelbyCompetence();
            }
         }else{
             pln("Competenza sconosciuta tra i tuoi Developers");

@@ -18,10 +18,10 @@ public interface DeveloperRepository {
     Developer addNewCompetence(Competence competence,Developer developer);//ok
     List<Developer> getDevelopersByNumOfCompetenceAndLevels(int numOfCompetence,Level level);//ok
     List<Competence> getCompetencebyLevel(Level level);//ok
-    List<Level> getLevelbyCompetence(List<Competence> competenceList);
+    List<Level> getLevelbyCompetence();//ok
     double getAverageSalary();//ok
     double getHighestSalary();//ok
-    boolean isSexistOrNot();//ok
+    boolean isSexistOrNot();//ok ma da continuare
 
 
 }

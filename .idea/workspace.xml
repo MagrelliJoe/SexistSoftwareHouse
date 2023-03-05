@@ -5,16 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe9abfd9-249c-4337-9247-a8b1872e1b60" name="Changes" comment="implementa metodi della view UserConsole">
-      <change afterPath="$PROJECT_DIR$/src/test/java/sexistsoftwarehouse/model/data/implementation/DeveloperRepositoryInMemoryTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/model/Competence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/model/Competence.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/model/Developer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/model/Developer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/model/data/abstraction/DeveloperRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/model/data/abstraction/DeveloperRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/model/data/implementation/DeveloperRepositoryInMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/model/data/implementation/DeveloperRepositoryInMemory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/model/service/abstraction/ServiceDevSofware.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/model/service/abstraction/ServiceDevSofware.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/model/service/implementation/ServiceDevSofwareInMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/model/service/implementation/ServiceDevSofwareInMemory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/view/UsingConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sexistsoftwarehouse/view/UsingConsole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/sexistsoftwarehouse/model/data/implementation/DeveloperRepositoryInMemoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/sexistsoftwarehouse/model/data/implementation/DeveloperRepositoryInMemoryTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,7 +191,21 @@
       <option name="project" value="LOCAL" />
       <updated>1677490068258</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="implementa metodi della view UserConsole">
+      <created>1677656423152</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1677656423152</updated>
+    </task>
+    <task id="LOCAL-00010" summary="implementa metodi della view UserConsole">
+      <created>1677656580380</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1677656580380</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -203,16 +214,5 @@
     <MESSAGE value="implementa metodi della classe UserConsole" />
     <MESSAGE value="implementa metodi della view UserConsole" />
     <option name="LAST_COMMIT_MESSAGE" value="implementa metodi della view UserConsole" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/sexistsoftwarehouse/model/data/implementation/DeveloperRepositoryInMemoryTest.java</url>
-          <line>17</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

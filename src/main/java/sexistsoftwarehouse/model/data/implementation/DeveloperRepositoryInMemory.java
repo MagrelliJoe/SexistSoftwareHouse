@@ -96,9 +96,9 @@ public class DeveloperRepositoryInMemory implements DeveloperRepository {
     }
 
     @Override
-    public List<Level> getLevelbyCompetence(List<Competence> competenceList) {
-        Stream <Competence> competenceStream = competenceList.stream();
-        List<Level> levelList = competenceStream.map(d-> d.getLevel()).toList();
+    public List<Level> getLevelbyCompetence() {
+        Stream <Developer> competenceStream = developers.stream();
+        List<Level> levelList = competenceStream.flatMap(d-> d.getCompetenceList().stream().map(c-> c.getLevel())).toList();
         return  levelList;
     }
 

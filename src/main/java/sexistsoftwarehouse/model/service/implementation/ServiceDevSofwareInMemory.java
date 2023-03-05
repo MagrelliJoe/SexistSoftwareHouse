@@ -70,8 +70,8 @@ public class ServiceDevSofwareInMemory implements ServiceDevSofware {
     }
 
     @Override
-    public List<Level> showLevelbyCompetence(List<Competence> competenceList) {
-        return repo.getLevelbyCompetence(competenceList);
+    public List<Level> showLevelbyCompetence() {
+        return repo.getLevelbyCompetence();
     }
 
     @Override
